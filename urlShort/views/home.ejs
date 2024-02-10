@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>home</title>
+    <style>
+        body{
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
+        body div table{
+            border: 2px;
+        }
+    </style>
+</head>
+<body>
+    <h1>URL Shortner</h1>
+    <!-- <div>
+        <% if (locals.id) { %>
+         <h2>Generated URL : https://myapp-jqb7.onrender.com/reurl/<%=id %></h2>
+        <% } %>            
+    </div> -->
+    <div>
+        <form action="/url/" method="post">
+            <label for="URL">Enter Your Original URL</label>
+            <input type="text" name="url" placeholder="https://example.com">
+            <button type="submit">Generate</button>
+        </form>
+    </div>
+    <div>
+        <% if (typeof urls === 'undefined') { %>
+            <!-- No data available -->
+            <div></div>
+        <% } else { %>
+            <!-- Data is available, but not passed -->
+            <% if (urls.length > 0) { %>
+                <table >
+                    <thead>
+                        <th>S. No.</th>
+                        <th>ShortID</th>
+                        <th>Redirect</th>
+                        <th>clicks</th>
+                        <th>Url</th>
+                    </thead>
+                    <tbody>
+                        
+                            <% urls.forEach((url, index) => { %>
+                                <% var concatenatedString = currentPath + "/reurl/" + url.shortId; %>
+                                <tr>
+                                    <td><%= index + 1 %></td>
+                                    <td><%= url.shortId %></td>
+                                    <td><%= url.redirectURL %></td>
+                                    <td><%= url.visitHistory.length %></td>
+                                    <td><%= concatenatedString %></td>
+                                </tr>
+                            <% }) %>
+                    </tbody>
+                </table>
+                <% } else { %>
+                    <tr>
+                        <td colspan="4" style="text-align: center">No URLs found</td>
+                    </tr>
+                <% } %>
+        <% } %>
+        
+    </div>
+</body>
+</html>

@@ -1,0 +1,30 @@
+Design a URL shortener services that takes a valid URL
+and returns a shortened URL, redirecting 
+the user to the previously provided URL.
+
+Also, keep track of total visits/clicks on the URL
+
+ROUTES
+
+POSST /URL -- Generates a new short URL and returns
+the shortened URL in the format example.com/random-id
+
+GET /:id -- redirects the user to the original URL
+
+GET /URL/analytics/:id -- returns the clicks for the provided
+short id
+
+
+
+
+
+Used Packages 
+    Express
+    mongoose
+    shortid -- to create short id
+    nodemon
+
+
+-- Used ejs for Server side rendering i.e. to UI at server side
+
+--Now i am adding authentication (statefull) to the app

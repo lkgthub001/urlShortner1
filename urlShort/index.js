@@ -12,7 +12,7 @@ const userRoute = require('./routes/user');
 const {restrictToLoggedinUserOnly, checkAuth} = require('./middlewares/auth')
 const app = express();
 const PORT = 8001;
-// const MONGODB_URI = "mongodb://127.0.0.1:27017/short-url"
+
 const MONGODB_URI =process.env.DB_URI;
 
 connectToMongoDB(MONGODB_URI).then(()=>{
